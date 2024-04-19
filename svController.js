@@ -1,6 +1,5 @@
 const svModel = require('./svModel')
-const mongoose = require('mongoose');
-const uri='mongodb+srv://legiahuy124578:huydz123456789@huy.0r5j3uq.mongodb.net/dealine';
+const conect = require('./conect')
 async function getAllStudents(req, res){
     await mongoose.connect(uri);
     let sv = await svModel.find();
@@ -8,7 +7,7 @@ async function getAllStudents(req, res){
     res.send(sv);
 }
 async function deleteStudent(req, res) {
-    await mongoose.connect(uri);
+    await mongoose.connect(conect.uri);
     const id = req.params.id;
     console.log(id)
 
@@ -16,7 +15,7 @@ async function deleteStudent(req, res) {
       res.redirect('../');
 }
 async function addStudent(req, res) {
-    await mongoose.connect(uri);
+    await mongoose.connect(conect.uri);
       const newStudent = await svModel.create(req.body);
       console.log(newStudent);
       const students = await svModel.find();
@@ -24,7 +23,7 @@ async function addStudent(req, res) {
     
   }
   async function updateStudentName(req, res) {
-    await mongoose.connect(uri);
+    await mongoose.connect(conect.uri);
       const { ten } = req.params;
       const newName = req.body.name;
       await svModel.updateOne({ ten }, { name: newName });

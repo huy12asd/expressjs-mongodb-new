@@ -7,7 +7,6 @@ const app = express();
 const port = 3001;
 
 
-const uri = 'mongodb+srv://legiahuy124578:huydz123456789@huy.0r5j3uq.mongodb.net/dealine'
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
