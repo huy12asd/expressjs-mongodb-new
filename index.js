@@ -15,9 +15,6 @@ app.use('/', svRouter);
 mongoose.Promise = global.Promise;
 mongoose
   .connect("mongodb+srv://legiahuy124578:huydz123456789@huy.0r5j3uq.mongodb.net/dealine")
-
-
-
 app.use('/students', svRouter);
 
 app.listen(port, () => {
