@@ -15,7 +15,9 @@ app.use('/', svRouter);
 mongoose.Promise = global.Promise;
 mongoose
   .connect("mongodb+srv://legiahuy124578:huydz123456789@huy.0r5j3uq.mongodb.net/dealine")
-app.use('/students', svRouter);
+ app.use('/students', svRouter);
+app.use('/classes',svRouter);
+app.use('/subjects',svRouter); 
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
