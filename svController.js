@@ -175,7 +175,7 @@ async function findstudentwithclass(req,res){
   const id=req.body.class_id;
   const result = await svModel.find(
     {class_id:id}
-  )
+  ).populate('class_id');
   if (result) {
     return res.send(result);
   } else {
