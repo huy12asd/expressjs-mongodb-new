@@ -170,7 +170,18 @@ async function updatesubjectName(req, res) {
     return res.status(404).send('Không tìm thấy lop');
   }
 }
-
+//mix
+async function findstudentwithclass(req,res){
+  const id=req.body.class_id;
+  const result = await svModel.find(
+    {class_id:id}
+  )
+  if (result) {
+    return res.send(result);
+  } else {
+    return res.status(404).send('Không tìm thấy ');
+  }
+}
 
 module.exports = {
   getAllStudents,
@@ -184,7 +195,8 @@ module.exports = {
   getAllsubject,
   deletesubject,
   updatesubjectName,
-  addsubject
+  addsubject,
+  findstudentwithclass
 };
 
 
