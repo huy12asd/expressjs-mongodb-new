@@ -2,10 +2,8 @@ const { svModel, classModel, subjectModel } = require("./svModel");
 
 
 //student
-async function getAllStudents(req, res) {
-
+async function getAllStudent(req, res) {
   let findStudent = await svModel.find();
-  console.log(findStudent);
   res.send(findStudent);
 }
 async function deleteStudent(req, res) {
