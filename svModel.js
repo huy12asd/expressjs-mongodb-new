@@ -8,6 +8,10 @@ const svSchema=new mongoose.Schema({
         type:Number,
         required:true
     },
+    point:{
+        type:Number,
+        
+    },
     class_id:{
         type:mongoose.Schema.Types.ObjectId,
         ref:'classes'
@@ -16,6 +20,9 @@ const svSchema=new mongoose.Schema({
 })
 const svModel = new mongoose.model('students',svSchema);
 const classSchema= new mongoose.Schema({
+    class_id:{
+        type:mongoose.Schema.Types.ObjectId
+    },
     name:{
         type:String,
         required:true
@@ -24,9 +31,9 @@ const classSchema= new mongoose.Schema({
         type:String,
         require:true
     },
-    sutuden_id:{
+    subject_id:{
         type:mongoose.Schema.Types.ObjectId,
-        ref:'students'
+        ref:'subject'
     }
 })
 const classModel = new mongoose.model('classes',classSchema);

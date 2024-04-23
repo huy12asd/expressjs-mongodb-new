@@ -9,7 +9,9 @@ studentRouter.get('/', svController.getAllStudents);
 studentRouter.delete('/:id', svController.deleteStudent);
 studentRouter.post('/add', svController.addStudent);
 studentRouter.put('/update/:name', svController.updateStudentName);
-studentRouter.get('/find/:id',svController.findstudentwithclass);
+studentRouter.get('/find',svController.findstudentwithclass);
+studentRouter.get('/findpoint',svController.findPoint);
+
 
 // Classes routes
 const classRouter = express.Router();
@@ -17,6 +19,8 @@ classRouter.get('/', svController.getAllclass);
 classRouter.delete('/:id', svController.deleteclass);
 classRouter.post('/add', svController.addclass);
 classRouter.put('/update/:name', svController.updateclassName);
+
+
 
 // Subject routes
 const subjectRouter = express.Router();

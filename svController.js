@@ -182,7 +182,28 @@ async function findstudentwithclass(req,res){
     return res.status(404).send('Không tìm thấy ');
   }
 }
+//tim kiem
 
+//hien diem tu 6-8
+async function findPoint(req,res){
+
+  const idsubject = req.body.subject_id;
+  const classItem = await classModel.findOne({subject_id:idsubject}).select('_id');
+
+  if (classItem) {
+    const idFind = classItem._id;
+    
+    const student = await svModel.find({ class_id: idFind, point: { $gte: 6, $lte: 8 } });
+
+    if (student && student.length > 0) {
+      return res.json(student);
+    } else {
+      return res.status(404).json({ message: 'Student not found in the specified condition' });
+    }
+  } else {
+    return res.status(404).json({ message: 'Class not found for the specified subject' });
+  }
+}
 module.exports = {
   getAllStudents,
   deleteStudent,
@@ -196,7 +217,9 @@ module.exports = {
   deletesubject,
   updatesubjectName,
   addsubject,
-  findstudentwithclass
+  findstudentwithclass,
+  findPoint,
+
 };
 
 
